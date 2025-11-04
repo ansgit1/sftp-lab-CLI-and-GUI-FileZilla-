@@ -30,16 +30,31 @@ Set-Service sshd -StartupType Automatic
 # Create test user
 net user sftplabtest Passw0rd! /add
 
-# Edit SSH config file
-notepad "C:\ProgramData\ssh\sshd_config"
+## Install and start OpenSSH Server
+Add-WindowsCapability -Online -Name OpenSSH.Server~~~~0.0.1.0
+Start-Service sshd
+Set-Service sshd -StartupType Automatic
 
-# Ensure the following lines are present/uncommented:
-Subsystem sftp sftp-server.exe
-PasswordAuthentication yes
-LogLevel VERBOSE
+# Create test user
+net user sftplabtest Passw0rd! /add
+
+# Verify SFTP subsystem line exists in SSH configuration
+findstr "Subsystem" "C:\ProgramData\ssh\sshd_config"
+
+# (Expected output includes)
+# Subsystem   sftp   sftp-server.exe (if you ar seeing this the SSH server is up and runnig )
+
+# and run Get-Service sshd to confirm it will show out put like below 
+
+( Status   Name               DisplayName
+------   ----               -----------
+Running  sshd               OpenSSH SSH Server )
+
+
 
 # Restart SSH service
 Restart-Service sshd
+
 
 
 🧪 Kali Linux (Client Side)
