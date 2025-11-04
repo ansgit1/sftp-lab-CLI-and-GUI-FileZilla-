@@ -50,8 +50,6 @@ findstr "Subsystem" "C:\ProgramData\ssh\sshd_config"
 ------   ----               -----------
 Running  sshd               OpenSSH SSH Server )
 
-
-
 # Restart SSH service
 Restart-Service sshd
 
