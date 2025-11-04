@@ -37,7 +37,7 @@ Get-Service sshd
 
   Expected output:
   Status   Name               DisplayName
-  ------   ----               -----------
+  
   Running  sshd               OpenSSH SSH Server
 
   Restart SSH service by command below
