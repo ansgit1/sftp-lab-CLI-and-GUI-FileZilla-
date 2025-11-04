@@ -40,10 +40,7 @@ Get-Service sshd
   
   Running  sshd               OpenSSH SSH Server
 
-  Restart SSH service by command below
-
-Restart-Service sshd
-
+  Restart SSH service by this command   Restart-Service sshd
 
  Kali Linux (Client Side)
 
