@@ -5,7 +5,8 @@
 This lab shows how to securely transfer files using SFTP (over SSH) between Kali Linux and Windows systems.
 You will set up OpenSSH, connect both machines, and test uploading and downloading files using both command-line and FileZilla GUI methods.
 
- Tools Used
+```
+Tools Used
 
 - Kali Linux – SFTP client (CLI) & SSH server (GUI)
 - Windows 10 – SFTP server (for CLI mode)
@@ -35,49 +36,47 @@ verify the SSH server is UP and running
 
 Get-Service sshd
 
-  Expected output:
-  Status   Name               DisplayName
-  
-  Running  sshd               OpenSSH SSH Server
+Expected output:
+Status   Name               DisplayName
 
-  Restart SSH service by this command   Restart-Service sshd
+Running  sshd               OpenSSH SSH Server
 
- Kali Linux (Client Side)
+Restart SSH service by this command
+Restart-Service sshd
 
- Connect to Windows via SFTP
+Kali Linux (Client Side)
+
+Connect to Windows via SFTP
 sftp sftplabtest@192.168.x.x
 
- Navigation commands
+Navigation commands
 pwd          # show remote dir
 lpwd         # show local dir
 ls / lls     # list remote/local files
 cd / lcd     # change remote/local dir
 
-
 Transfers
-
 get remotefile.txt          # download from Windows
 put localfile.txt           # upload to Windows
 put -r foldername           # upload folder recursively
 bye                         # exit session
 
- Result: Successful login, file transfers both ways, verified uploads on Windows.
+Result: Successful login, file transfers both ways, verified uploads on Windows.
 
 SFTP GUI Lab — Windows Server 2016 (Client) ↔ Kali (Server)
 
- Kali Linux Setup (SFTP Server)
-
+Kali Linux Setup (SFTP Server)
 
 Enable and start SSH service
 sudo systemctl enable --now ssh
 
- Check service status
+Check service status
 sudo systemctl status ssh
 
- Find Kali IP
+Find Kali IP
 ip a
 
- Windows Server 2016 Setup (FileZilla Client)
+Windows Server 2016 Setup (FileZilla Client)
 
 Open FileZilla Client enter (quick connect)
 
@@ -102,3 +101,4 @@ Test Upload (Windows → Kali) and Download (Kali → Windows).
 - Tools tested: OpenSSH, FileZilla, VMware
 
 Please find the screenshots of the CLI lab and GUI transfer logs in this repository.
+```
